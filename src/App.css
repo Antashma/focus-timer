@@ -1,21 +1,45 @@
 #root {
   height: 100%;
   text-align: center;
-  background: url(./assets/swaying.gif) no-repeat center;
-  background-size: cover;
+  /* background-color: #C1E1C1; */
+  background-color: whitesmoke;
+  background-image: url(./assets/images/notebook.png);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color:#333;
   text-transform: lowercase;
 }
 
 main {
-  width: 100%;
+  width: 90%;
+  height: 90%;
+  border: 2px solid #333;
+  background: url(./assets/images/swaying.gif) no-repeat center;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  
+}
+
+
+header {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+
+#currentTimeAndDate {
+  font-size: 2.5rem;
 }
 
 h1 {
-  font-size: 1.8rem;
+  font-size: 3rem;
   text-transform: lowercase;
 }
 

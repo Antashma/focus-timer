@@ -1,3 +1,31 @@
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: normal;
+  src: url(./assets/fonts/CourierPrime-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: bold;
+  src: url(./assets/fonts/CourierPrime-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: italic;
+  font-weight: normal;
+  src: url(./assets/fonts/CourierPrime-Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: italic;
+  font-weight: bold;
+  src: url(./assets/fonts/CourierPrime-BoldItalic.ttf) format('truetype');
+}
+
 * {
   margin:0;
   padding: 0;
@@ -11,4 +39,6 @@ html {
 
 body {
   height: 100%;
+  font-family: "Courier Prime", monospace;
 }
+

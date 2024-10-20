@@ -1,0 +1,15 @@
+#sessionFocus {
+    width: 50vw;
+    height: 50px;
+    font-size: 5rem;
+  }
+
+#sessionFocus input#focusTextInput {
+    background-color: transparent;
+    border:none;
+    font-size: 5rem;
+    text-align: center;
+    border-bottom: 5px solid #333;
+    font-family: "Courier Prime", sans-serif;
+    font-style: italic;
+}
