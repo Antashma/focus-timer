@@ -7,8 +7,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>focus timer</h1>
-        <p id="currentTimeAndDate">01:55PM 10/19/2024</p>
+        <h1>focus time</h1>
       </header>
 
       <main>

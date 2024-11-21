@@ -2,17 +2,17 @@ const presetTimers = [
     {
         id: 0,
         name: "5 minute",
-        duration: 5
+        duration: 300
     },
     {
         id: 1,
         name: "10 minute",
-        duration: 10
+        duration: 600
     },
     {
         id: 2,
         name: "30 minute",
-        duration: 30
+        duration: 1800
     },
 ]
 

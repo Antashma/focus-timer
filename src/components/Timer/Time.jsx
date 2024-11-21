@@ -1,41 +1,44 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+
+const initialDocTitle = document.querySelector("title").textContent;
 
 function Time(props) {
   const {timerData, currentDuration, setCurrentDuration, on, setOn } = props;
+  const [docTitle, setDocTitle] = useState(initialDocTitle)
 
   useEffect(() => {
+    let endTime = Date.now() + currentDuration * 1000;
     let timer;
-    const docTitle = document.querySelector("title")
     if (on) {
-      docTitle.textContent = displayTime(currentDuration)
-
+      document.title = "Focusing... " + displayTime(currentDuration);
       timer = setInterval(() => {
-        countDown(currentDuration)
+        const now = Date.now()
+        const newTimeLeft = Math.max(Math.round((endTime - now)/1000), 0);
+        countDown(newTimeLeft)
       }, 1000)
+
     } else if (!on) {
-      docTitle.textContent = "Pomodoro Timer";
+      document.title = initialDocTitle;
     }
 
     return () => clearInterval(timer)
   }, [on, currentDuration])
 
-
-  function countDown({minutes, seconds}) {
-    let newMinutes = minutes;
-    let newSeconds = seconds;
-    if (minutes === 0 && seconds === 0) {
-      setOn(false)
-    } else if (seconds === 0) { 
-      newSeconds = 59;
-      newMinutes -= 1;
-    } else newSeconds -= 1
-    setCurrentDuration({seconds: newSeconds, minutes: newMinutes})
+  function countDown(timeLeftInSec) {
+    if (timeLeftInSec === 0) setOn(false)
+    setCurrentDuration(timeLeftInSec)
   } 
 
   function displayTime(currentDuration) {
-    const hoursSection = currentDuration.minutes < 10 ? "0" + currentDuration.minutes : currentDuration.minutes;
-    const minutesSection = currentDuration.seconds < 10 ? "0" + currentDuration.seconds : currentDuration.seconds;
-    return `${hoursSection}:${minutesSection}`;
+    const minutes = Math.floor(currentDuration/60);
+    const seconds = currentDuration%60;
+    const minutesSection = minutes < 10 ? "0" + minutes : minutes;
+    const secondsSection = seconds < 10 ? "0" + seconds : seconds;
+
+    if(minutes <= 1) document.querySelector(".time--container").style.color = "pink";
+    else document.querySelector(".time--container").style.color = "black";
+
+    return `${minutesSection}:${secondsSection}`;
   }
 
   return ( 

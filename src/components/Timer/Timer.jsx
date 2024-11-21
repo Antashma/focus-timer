@@ -6,20 +6,20 @@ import "./style.css";
 const initialTimer = {
     id: 1,
     name: "10 minute",
-    duration: 10
+    duration: 600
 }
 
 function Timer() {
     const [timer, setTimer] = useState(initialTimer)
     const [timerIsOn, setTimerIsOn] = useState(false)
-    const [currentDuration, setCurrentDuration] = useState({minutes: timer.duration, seconds:0});
+    const [currentDuration, setCurrentDuration] = useState(timer.duration);
 
     const displayPresetTimers = presetTimers.map(preset => {
         return <button className={`timer--preset-btn ${timer.id === preset.id ? "selected" : ""}`} id={preset.id} key={preset.id} onClick={() => setTimer(preset)}>{preset.name}</button>
     })
 
     useEffect(() => {
-        setCurrentDuration({minutes: timer.duration, seconds: 0})
+        setCurrentDuration(timer.duration)
     }, [timer])
 
     return (
@@ -46,12 +46,12 @@ function Timer() {
                     </button>
 
                     <button onClick={() => {
-                        setCurrentDuration({minutes: timer.duration, seconds: 0});
+                        setCurrentDuration(timer.duration);
                         setTimerIsOn(false); 
                     }}
                     >Stop</button>
 
-                    <button onClick={() => setCurrentDuration({minutes: timer.duration, seconds: 0})}>
+                    <button onClick={() => setCurrentDuration(timer.duration)}>
                         Reset
                     </button>
                 </section>

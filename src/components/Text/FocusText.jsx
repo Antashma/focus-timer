@@ -8,11 +8,9 @@ function FocusText() {
   const [text, setText] = useState(initialTextState)
 
   return (
-    <>
-        <section id="sessionFocus">
-            <input id="focusTextInput" type="text" />
-        </section>
-    </>
+      <section id="sessionFocus">
+          <input id="focusTextInput" type="text" />
+      </section>
   )
 }
 
